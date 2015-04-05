@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<faces-config version="2.2" xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee 
+    http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
+
+    <managed-bean>
+        <managed-bean-name>convertBean</managed-bean-name>
+        <managed-bean-class>ConvertBean</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <navigation-rule>
+        <from-view-id>/input_number.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>result</from-outcome>
+            <to-view-id>/result.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/result.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>back</from-outcome>
+            <to-view-id>/input_number.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+    <navigation-rule>
+        <from-view-id>/static_switch.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>static-ok</from-outcome>
+            <to-view-id>/static_switch-ok.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>static-fail</from-outcome>
+            <to-view-id>/static_switch-fail.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+    <navigation-rule>
+        <navigation-case>
+            <from-outcome>ok</from-outcome>
+            <to-view-id>/static_switch-ok.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>fail</from-outcome>
+            <to-view-id>/static_switch-fail.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+    <navigation-rule>
+        <from-view-id>/declarative-switch.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>less-or-more</from-outcome>
+            <if>#{declarativeSwitch.value lt 100}</if>
+            <to-view-id>/declarative-switch-less.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>less-or-more</from-outcome>
+            <to-view-id>/declarative-switch-more.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+    <navigation-rule>
+        <from-view-id>/validator_default_enter_data.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>show_data</from-outcome>
+            <to-view-id>/validator_default_show_data.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/validator_default_show_data.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>enter_data</from-outcome>
+            <to-view-id>/validator_default_enter_data.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+</faces-config>

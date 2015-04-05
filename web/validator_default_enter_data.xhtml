@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Created by IntelliJ IDEA.
+  User: Nikita
+  Date: 31.03.2015
+  Time: 11:56
+-->
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+    <title>Validators and convertors</title>
+</h:head>
+
+<h:body>
+    <h2>This is example of using JSF validators and convertors</h2>
+
+    <h:form>
+        <h:outputText value="This field can't start with 'abc':"/>
+        <h:inputText id="inputMessage_0" value="#{validatorEx.message_0}" >
+            <f:validator validatorId="HelloMessageValidator"/>
+        </h:inputText>
+        <h:message for="inputMessage_0" style="color: #1d28dc; border: groove"/>
+        <br/>
+        <h:outputText value="This field can't be less then 6 and more then 15:"/>
+        <h:inputText id="inputMessage_1" value="#{validatorEx.message_1}">
+            <f:validateLength minimum="6" maximum="15"/>
+        </h:inputText>
+        <h:message for="inputMessage_1" style="color: #1d28dc; border: groove"/>
+        <br/>
+        <h:outputText value="This field may contain only int:"/>
+        <h:inputText id="integerOnlyInput" value="#{validatorEx.count}">
+            <f:convertNumber integerOnly="true"/>
+        </h:inputText>
+        <h:message for="integerOnlyInput" style="color: #1d28dc; border: groove"/>
+        <br/>
+        <h:outputText value="This field may contain only int in this format '12.69':"/>
+        <h:inputText id="intagerPairInput" value="#{validatorEx.pair}">
+            <f:converter converterId="IntegerPairConverter"/>
+        </h:inputText>
+        <h:message for="intagerPairInput" style="color: #1d28dc; border: groove"/>
+        <br/>
+        <h:commandButton action="show_data" value="Welkome Me"/>
+        <hr/>
+    </h:form>
+
+</h:body>
+
+</html>

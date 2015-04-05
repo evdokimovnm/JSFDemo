@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Created by IntelliJ IDEA.
+  User: Nikita
+  Date: 31.03.2015
+  Time: 11:56
+-->
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+    <title>Default validator</title>
+</h:head>
+
+<h:body>
+    <h2>Everithing is Ok</h2>
+    <h:form>
+        <h:outputText value="#{validatorEx.message_0}" />
+
+        <br/>
+        <h:outputText value="#{validatorEx.message_1}" />
+
+        <br/>
+        <h:outputText value="#{validatorEx.count}" />
+
+        <br/>
+        <h:outputText value="#{validatorEx.pair}">
+            <f:converter converterId="IntegerPairConverter"/>
+        </h:outputText>
+        <br/>
+
+        <h:commandButton value="Back" action="enter_data"/>
+        <hr/>
+    </h:form>
+</h:body>
+
+</html>
